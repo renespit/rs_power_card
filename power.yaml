@@ -1,0 +1,93 @@
+type: custom:rs-power-card
+panel: true 
+card_mod:
+  style: !include /config/churchlane/css/v4.0/rs-power-c1.css
+grid: 
+  entity: sensor.p1_meter_5c2faf094492_active_power_l1
+solar: 
+  gateway:
+    entity: sensor.envoy_122323024158_current_power_production
+  groups:
+    - name: Dak Voorzijde
+      font-color: "black"
+      relay: binary_sensor.relay_122306123430_contact
+      entities:
+        - entity: sensor.inverter_482311076617_production
+          max: 420          
+        - entity: sensor.inverter_482315009250_production
+          max: 420
+        - entity: sensor.inverter_482315009203_production
+          max: 420
+        - entity: sensor.inverter_482315009235_production
+          max: 420
+    - name: Dak Achterzijde
+      font-color: "black"
+      relay: binary_sensor.relay_122308093491_contact
+      entities:
+        - entity: sensor.inverter_482315008955_production
+          max: 420
+        - entity: sensor.inverter_482315009065_production
+          max: 420
+        - entity: sensor.inverter_482315009204_production
+          max: 420
+        - entity: sensor.inverter_482315009048_production
+          max: 420
+        - entity: sensor.inverter_482315009249_production
+          max: 420
+        - entity: sensor.inverter_482315011809_production
+          max: 420
+        - entity: sensor.inverter_482311076589_production
+          max: 420
+        - entity: sensor.inverter_482311080122_production
+          max: 420        
+    - name: Dak Dakkapel
+      font-color: "black"
+      relay: binary_sensor.relay_122308093491_contact
+      entities:
+        - entity: sensor.inverter_482315011642_production
+          max: 420
+        - entity: sensor.inverter_482315011655_production
+          max: 420
+        - entity: sensor.inverter_482311070386_production    
+          max: 420
+home:
+  devices:
+    - name: Was
+      entity: sensor.was_active_power
+    - name: Droger
+      entity: sensor.wasdroger_active_power
+    - name: Koffie
+      entity: sensor.koffiezetter_active_power   
+    - name: Kantoor
+      entity: sensor.kantoor_active_power
+    - name: MK
+      entity: sensor.meterkast_active_power
+    - name: Oven
+      entity: sensor.oven_active_power      
+    - name: CV
+      entity: sensor.cv_active_power  
+    - name: Pomp
+      entity: sensor.cvpomp_active_power        
+    - name: Laadpaal
+      entity: sensor.laadpaal_active_power  
+    - name: Domot.
+      entity: sensor.domotica
+    
+      
+    - name: Keuken
+      entity: sensor.keukenkantoor_active_power # De "hoofd" meter
+    - name: Vaat
+      entity: sensor.vaatwasser_active_power
+      parent: sensor.keukenkantoor_active_power # Valt onder Keuken
+    - name: Oven
+      entity: sensor.oven_active_power
+      parent: sensor.keukenkantoor_active_power
+      parent: sensor.keukenkantoor_active_power # Valt onder Keuken
+    - name: Boiler
+      entity: sensor.boiler_active_power    
+      parent: sensor.keukenkantoor_active_power # Valt onder Keuken
+    - name: Koelkast
+      entity: sensor.koelkast_active_power        
+      parent: sensor.keukenkantoor_active_power # Valt onder Keuken
+      
+
