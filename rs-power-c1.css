@@ -1,0 +1,41 @@
+|
+
+    :host {
+        display: block !important;
+        width: 100% !important;
+        /* Verberg scrollbars voor Chrome, Safari en Opera */
+        -webkit-overflow-scrolling: auto !important;
+    }
+
+    ha-card {
+        padding: 0px !important;
+        padding-left: 20px !important;
+        padding-right: 50px !important;
+        width: 100% !important;
+        max-width: none !important;
+        overflow: hidden !important; 
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+        background: transparent !important;
+        border: none !important;
+    }
+
+    /* Specifieke selector voor Chrome/Safari/iPad */
+    ha-card::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    ha-card, ha-card * {
+        -ms-overflow-style: none !important; /* IE en Edge */
+        scrollbar-width: none !important; /* Firefox */
+    }
+
+    ha-card::-webkit-scrollbar, 
+    ha-card *::-webkit-scrollbar {
+        display: none !important; /* Chrome, Safari en Opera */
+    }
+    
+    ha-card * {
+        overflow: visible !important;
+    }
+
