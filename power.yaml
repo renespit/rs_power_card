@@ -6,6 +6,11 @@ grid:
   entity: sensor.p1_meter_5c2faf094492_active_power_l1
   energy_entity: sensor.p1_total_power_import
 maxPower: 5000
+battery:
+  entity: sensor.your_battery_power_sensor
+  state_of_charge: sensor.your_battery_percentage_sensor
+  max: 5000       # Maximale laad/ontlaadsnelheid voor de ring
+  invert: false   # Zet op 'true' als ontladen nu als negatief wordt getoond
 solar: 
   gateway:
     entity: sensor.envoy_122323024158_current_power_production
